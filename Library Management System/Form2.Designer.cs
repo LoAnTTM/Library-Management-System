@@ -32,7 +32,7 @@
             this.btn_new = new System.Windows.Forms.Button();
             this.btn_edit = new System.Windows.Forms.Button();
             this.btn_remove = new System.Windows.Forms.Button();
-            this.btn_write = new System.Windows.Forms.Button();
+            this.btn_search = new System.Windows.Forms.Button();
             this.btn_load = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,15 +46,17 @@
             this.txtyear = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
+            this.btn_borrow = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_add
             // 
             this.btn_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_add.Location = new System.Drawing.Point(12, 242);
+            this.btn_add.Location = new System.Drawing.Point(255, 242);
             this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(100, 30);
+            this.btn_add.Size = new System.Drawing.Size(80, 30);
             this.btn_add.TabIndex = 0;
             this.btn_add.Text = "Add";
             this.btn_add.UseVisualStyleBackColor = true;
@@ -63,9 +65,9 @@
             // btn_new
             // 
             this.btn_new.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_new.Location = new System.Drawing.Point(154, 242);
+            this.btn_new.Location = new System.Drawing.Point(143, 242);
             this.btn_new.Name = "btn_new";
-            this.btn_new.Size = new System.Drawing.Size(100, 30);
+            this.btn_new.Size = new System.Drawing.Size(80, 30);
             this.btn_new.TabIndex = 1;
             this.btn_new.Text = "New";
             this.btn_new.UseVisualStyleBackColor = true;
@@ -74,9 +76,9 @@
             // btn_edit
             // 
             this.btn_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_edit.Location = new System.Drawing.Point(302, 242);
+            this.btn_edit.Location = new System.Drawing.Point(362, 242);
             this.btn_edit.Name = "btn_edit";
-            this.btn_edit.Size = new System.Drawing.Size(100, 30);
+            this.btn_edit.Size = new System.Drawing.Size(80, 30);
             this.btn_edit.TabIndex = 2;
             this.btn_edit.Text = "Edit";
             this.btn_edit.UseVisualStyleBackColor = true;
@@ -85,27 +87,28 @@
             // btn_remove
             // 
             this.btn_remove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_remove.Location = new System.Drawing.Point(434, 242);
+            this.btn_remove.Location = new System.Drawing.Point(467, 242);
             this.btn_remove.Name = "btn_remove";
-            this.btn_remove.Size = new System.Drawing.Size(100, 30);
+            this.btn_remove.Size = new System.Drawing.Size(80, 30);
             this.btn_remove.TabIndex = 3;
             this.btn_remove.Text = "Remove";
             this.btn_remove.UseVisualStyleBackColor = true;
+            this.btn_remove.Click += new System.EventHandler(this.btn_remove_Click);
             // 
-            // btn_write
+            // btn_search
             // 
-            this.btn_write.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_write.Location = new System.Drawing.Point(434, 85);
-            this.btn_write.Name = "btn_write";
-            this.btn_write.Size = new System.Drawing.Size(100, 30);
-            this.btn_write.TabIndex = 4;
-            this.btn_write.Text = "Write File";
-            this.btn_write.UseVisualStyleBackColor = true;
+            this.btn_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_search.Location = new System.Drawing.Point(434, 153);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.Size = new System.Drawing.Size(100, 50);
+            this.btn_search.TabIndex = 4;
+            this.btn_search.Text = "Search";
+            this.btn_search.UseVisualStyleBackColor = true;
             // 
             // btn_load
             // 
             this.btn_load.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_load.Location = new System.Drawing.Point(434, 160);
+            this.btn_load.Location = new System.Drawing.Point(12, 242);
             this.btn_load.Name = "btn_load";
             this.btn_load.Size = new System.Drawing.Size(100, 30);
             this.btn_load.TabIndex = 5;
@@ -224,11 +227,35 @@
             this.label6.TabIndex = 18;
             this.label6.Text = "Library Management System";
             // 
+            // btn_borrow
+            // 
+            this.btn_borrow.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_borrow.Location = new System.Drawing.Point(434, 78);
+            this.btn_borrow.Name = "btn_borrow";
+            this.btn_borrow.Size = new System.Drawing.Size(100, 50);
+            this.btn_borrow.TabIndex = 19;
+            this.btn_borrow.Text = "Borrow";
+            this.btn_borrow.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Red;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(529, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(30, 30);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // book_manager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(559, 523);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_borrow);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtyear);
@@ -242,11 +269,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_load);
-            this.Controls.Add(this.btn_write);
+            this.Controls.Add(this.btn_search);
             this.Controls.Add(this.btn_remove);
             this.Controls.Add(this.btn_edit);
             this.Controls.Add(this.btn_new);
             this.Controls.Add(this.btn_add);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "book_manager";
             this.Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -261,7 +289,7 @@
         private System.Windows.Forms.Button btn_new;
         private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.Button btn_remove;
-        private System.Windows.Forms.Button btn_write;
+        private System.Windows.Forms.Button btn_search;
         private System.Windows.Forms.Button btn_load;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -275,5 +303,7 @@
         private System.Windows.Forms.TextBox txtyear;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btn_borrow;
+        private System.Windows.Forms.Button button1;
     }
 }

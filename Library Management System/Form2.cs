@@ -86,6 +86,7 @@ namespace Library_Management_System
             if (dataGridView1.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Please select a row to edit.");
+                return;
             }
 
             DataGridViewRow selectedRow = dataGridView1.Rows[0];
@@ -119,7 +120,65 @@ namespace Library_Management_System
 
         private void btn_load_Click(object sender, EventArgs e)
         {
+            //check if the file exists
+            if (File.Exists(filePath))
+            {
+                //Open file to read 
+                using (StreamReader reader = new StreamReader(filePath)) 
+                {
+                    //Loop until read all line in file
+                    while(!reader.EndOfStream) 
+                    {
+                        string line = reader.ReadLine();
+                        //Make sure the line not empty or null
+                        if(!string.IsNullOrEmpty(line)) 
+                        {
+                            string[] value = line.Split(',');
+                            //Check if the row has 5 columns or not
+                            if(value.Length == 5)
+                            {
+                                dataGridView1.Rows.Add(value);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Skipped line");
+                            }
+                        }
+                    }
+                }
+                MessageBox.Show("Book loaded successfully!");
+            }
+            else
+            {
+                MessageBox.Show("File does not exist.");
+            }
+        }
 
+        private void btn_remove_Click(object sender, EventArgs e)
+        {
+            //Check selected row
+            if(dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a row to delete.");
+                return;
+            }
+            //confirm the action
+            DialogResult dr = MessageBox.Show("Are you sure you want to delete this book?",
+                "Confirmation", MessageBoxButtons.YesNo);
+            if (dr == DialogResult.Yes) 
+            {
+                //loop through the selected rows and remove 
+                foreach(DataGridViewRow row in dataGridView1.Rows)
+                {
+                    dataGridView1.Rows.Remove(row);
+                }
+                MessageBox.Show("The book deleted successfully!");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
