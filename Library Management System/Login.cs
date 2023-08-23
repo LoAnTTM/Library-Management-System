@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Library_Management_System
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }
@@ -23,8 +23,8 @@ namespace Library_Management_System
             string password = tb_password.Text;
             if (user_name == "admin" && password == "123")
             {
-                book_manager f = new book_manager();
-                f.Show();
+                book_manager b = new book_manager();
+                b.Show();
                 this.Hide();
             }
             else

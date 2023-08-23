@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +13,6 @@ namespace Library_Management_System
         public string authorName { get; set; }
         public string category { get; set; }
         public int publicYear { get; set; }
+        public string status { get; set; }
     }
 }
